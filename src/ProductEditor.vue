@@ -4,7 +4,12 @@ import type { Product } from "./useProduct";
 const props = defineProps<{
   product: Product;
 }>();
-const editedProduct = ref<Product>({ ...props.product });
+
+// This line below will not allow v-model to work properly
+const editedProduct = ref<Product>(props.product);
+
+// This line below will make it work properly
+// const editedProduct = ref<Product>({ ...props.product });
 </script>
 
 <template>
